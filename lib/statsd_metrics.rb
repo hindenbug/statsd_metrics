@@ -6,15 +6,13 @@ module StatsdMetrics
 
   class Statsd
 
-    attr_reader :namespace
+    attr_accessor :namespace, :queue_size
 
     # StatsD host. Defaults to 127.0.0.1.
     attr_accessor :host
 
     # StatsD port. Defaults to 8125.
     attr_accessor :port
-
-    attr_accessor :queue_size
 
     class << self
       # Set to a standard logger instance to enable debug logging.
