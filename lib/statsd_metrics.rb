@@ -23,8 +23,6 @@ module StatsdMetrics
       @socket    = UDPSocket.new
       @host      = host
       @port      = port
-      @namespace = namespace
-      @prefix    = @namespace ? "#{namespace}" : nil
       @reporter  = StatsdMetrics::Reporter.new(self, queue_size)
     end
 
@@ -97,7 +95,7 @@ module StatsdMetrics
         # Replace Ruby module scoping with '.' and reserved chars (: | @) with underscores.
         stat = stat.to_s.gsub('::', '.').tr(':|@', '_')
         rate = "|@#{sample_rate}" unless sample_rate == 1
-        return "#{@prefix}#{stat}:#{delta}|#{type}#{rate}"
+        return "#{namespace}.#{stat}:#{delta}|#{type}#{rate}"
       end
     end
 
