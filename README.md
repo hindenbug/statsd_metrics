@@ -1,6 +1,6 @@
 # StatsdMetrics
 
-Heavily inspired by statsd-ruby [https://github.com/reinh/statsd]
+Heavily inspired by [statsd-ruby](https://github.com/reinh/statsd)
 
 ## Installation
 
